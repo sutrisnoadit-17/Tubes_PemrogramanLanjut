@@ -2,6 +2,7 @@
 import time
 import customtkinter
 import tkinter
+from history import pop
 
 customtkinter.set_appearance_mode("System")  
 customtkinter.set_default_color_theme("blue")  
@@ -11,7 +12,7 @@ class JadwalSholat(customtkinter.CTk):
         super().__init__()
 
         self.title("Jadwal Sholat")
-        self.geometry(f"{1000}x{700}")
+        self.geometry(f"{1000}x{750}")
 
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure((2, 3), weight=0)
@@ -49,14 +50,16 @@ class JadwalSholat(customtkinter.CTk):
         self.scaling_optionemenu.grid(row=1, column=2, padx=(300, 20), pady=(20, 100))
         self.labelDda2 = customtkinter.CTkLabel(self.dropdownFrame, text="Kab/Kota", font=customtkinter.CTkFont(size=12))
         self.labelDda2.grid(row=1, column=2, padx=(300, 20), pady=(18, 40))
-        self.scaling_optionemenu2 = customtkinter.CTkOptionMenu(self.dropdownFrame, values=["??", "??", "??", "??", "??"]
+        self.scaling_optionemenu2 = customtkinter.CTkOptionMenu(self.dropdownFrame, values=["??", "??", "??", "??", "??", "??"]
                                                               )
         self.scaling_optionemenu2.grid(row=1, column=2, padx=(300, 20), pady=(20, 1))
-        self.buttonSubmit = customtkinter.CTkButton(self.dropdownFrame, command=self.sidebar_button_event)
+        self.buttonSubmit = customtkinter.CTkButton(self.dropdownFrame,text="Submit", command=self.sidebar_button_event)
         self.buttonSubmit.grid(row=1, column=2, padx=(300, 20), pady=(100, 1))
         #response form
+        # labelTgl = customtkinter.CTkLabel(self, text="Output",font=("bold", 20))
+        # labelTgl.place(x=350,y=350)
         self.dropdownFrame1 = customtkinter.CTkFrame(self)
-        self.dropdownFrame1.grid(row=1, column=1, padx=(20, 20), pady=(20, 100), sticky="nsew")
+        self.dropdownFrame1.grid(row=1, column=1, padx=(20, 20), pady=(20, 20), sticky="nsew")
         labelTgl = customtkinter.CTkLabel(self.dropdownFrame1, text="Tanggal : ??",font=("bold", 12))
         labelTgl.place(x=350,y=10)
         labelImsyak = customtkinter.CTkLabel(self.dropdownFrame1, text="Imsyak  =",font=("bold", 12))
@@ -75,10 +78,10 @@ class JadwalSholat(customtkinter.CTk):
         labelMaghrib.place(x=10,y=150)
         labelIsya = customtkinter.CTkLabel(self.dropdownFrame1, text="Isya  =",font=("bold", 12))
         labelIsya.place(x=10,y=170)
-  
-    def open_input_dialog_event(self):
-        dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
-        print("CTkInputDialog:", dialog.get_input())
+        self.string_input_button = customtkinter.CTkButton(master=self, text="Selengkapnya",
+                                                           command=pop)
+        self.string_input_button.place(x=520,y=710)
+
 
     def change_appearance_mode_event(self, new_appearance_mode: str):
         customtkinter.set_appearance_mode(new_appearance_mode)
