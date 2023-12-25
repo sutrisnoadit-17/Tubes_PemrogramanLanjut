@@ -1,6 +1,7 @@
 
 import time
 import customtkinter
+import tkinter
 
 customtkinter.set_appearance_mode("System")  
 customtkinter.set_default_color_theme("blue")  
@@ -10,7 +11,7 @@ class JadwalSholat(customtkinter.CTk):
         super().__init__()
 
         self.title("Jadwal Sholat")
-        self.geometry(f"{1000}x{420}")
+        self.geometry(f"{1000}x{700}")
 
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure((2, 3), weight=0)
@@ -18,7 +19,7 @@ class JadwalSholat(customtkinter.CTk):
 
         self.sidebar_frame = customtkinter.CTkFrame(self, width=150, corner_radius=0)
         self.sidebar_frame.grid(row=0, column=0, rowspan=4, sticky="nsew")
-        self.sidebar_frame.grid_rowconfigure(4, weight=1)
+        self.sidebar_frame.grid_rowconfigure(4, weight=2)
         self.logo_label = customtkinter.CTkLabel(self.sidebar_frame, text="Jadwal Sholat", font=customtkinter.CTkFont(size=20, weight="bold"))
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
         self.clock_lbl = customtkinter.CTkLabel(self.sidebar_frame,font=customtkinter.CTkFont(size=20, weight="bold"))
@@ -35,6 +36,29 @@ class JadwalSholat(customtkinter.CTk):
                                                                command=self.change_scaling_event)
         self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
 
+        # # batas tes
+ 
+        self.dropdownFrame = customtkinter.CTkFrame(self)
+        self.dropdownFrame.grid(row=0, column=1, padx=(20, 20), pady=(20, 100), sticky="nsew")
+        self.labelDd = customtkinter.CTkLabel(self.dropdownFrame, text="Pilih Daerahmu", font=customtkinter.CTkFont(size=20, weight="bold"))
+        self.labelDd.grid(row=1, column=2, padx=(300, 30), pady=(20, 200))
+        self.labelDda = customtkinter.CTkLabel(self.dropdownFrame, text="Provinsi", font=customtkinter.CTkFont(size=12))
+        self.labelDda.grid(row=1, column=2, padx=(300, 20), pady=(70, 200))
+        self.scaling_optionemenu = customtkinter.CTkOptionMenu(self.dropdownFrame, values=["??", "??", "??", "??", "??"]
+                                                              )
+        self.scaling_optionemenu.grid(row=1, column=2, padx=(300, 20), pady=(20, 100))
+        self.labelDda2 = customtkinter.CTkLabel(self.dropdownFrame, text="Kab/Kota", font=customtkinter.CTkFont(size=12))
+        self.labelDda2.grid(row=1, column=2, padx=(300, 20), pady=(18, 40))
+        self.scaling_optionemenu2 = customtkinter.CTkOptionMenu(self.dropdownFrame, values=["??", "??", "??", "??", "??"]
+                                                              )
+        self.scaling_optionemenu2.grid(row=1, column=2, padx=(300, 20), pady=(20, 1))
+        self.buttonSubmit = customtkinter.CTkButton(self.dropdownFrame, command=self.sidebar_button_event)
+        self.buttonSubmit.grid(row=1, column=2, padx=(300, 20), pady=(100, 1))
+        #response form
+  
+    def open_input_dialog_event(self):
+        dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
+        print("CTkInputDialog:", dialog.get_input())
 
     def change_appearance_mode_event(self, new_appearance_mode: str):
         customtkinter.set_appearance_mode(new_appearance_mode)
