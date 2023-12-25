@@ -1,7 +1,8 @@
 import customtkinter
 from CTkTable import *
+root = customtkinter.CTk()
 def pop():
-    root = customtkinter.CTk()
+
     root.title("History Previous")
     value = [["Tgl","imsyak","shubuh","terbit","dhuha","dzuhur","ashr","magrib","isya"],
             [1,2,3,4,5],
