@@ -10,7 +10,7 @@ def dateSeparated():
 
 def testConnection():
     try:
-        requests.get('https://github.com/',timeout=00.2)
+        requests.get('https://github.com/')
     except requests.exceptions.RequestException as e:
         return False 
     except Exception as e:

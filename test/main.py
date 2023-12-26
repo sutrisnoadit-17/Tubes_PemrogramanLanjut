@@ -15,6 +15,5 @@ class testApi(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers['Content-Type'], 'text/plain; charset=utf-8')
         self.assertIsInstance(response.json(), list)
-            
 if __name__ == '__main__':
     unittest.main()
