@@ -54,29 +54,6 @@ class JadwalSholat(customtkinter.CTk):
         self.buttonSubmit = customtkinter.CTkButton(self.dropdownFrame,text="Submit", command=self.displayResponse)
         self.buttonSubmit.grid(row=1, column=2, padx=(300, 20), pady=(20, 1))
 
-        #response form
-        # labelTgl = customtkinter.CTkLabel(self, text="Output",font=("bold", 20))
-        # labelTgl.place(x=350,y=350)
-        # self.dropdownFrame1 = customtkinter.CTkFrame(self)
-        # self.dropdownFrame1.grid(row=1, column=1, padx=(20, 20), pady=(20, 20), sticky="nsew")
-        # labelTgl = customtkinter.CTkLabel(self.dropdownFrame1, text="Tanggal : ??",font=("bold", 12))
-        # labelTgl.place(x=350,y=10)
-        # labelImsyak = customtkinter.CTkLabel(self.dropdownFrame1, text="Imsyak  =",font=("bold", 12))
-        # labelImsyak.place(x=10,y=30)
-        # labelShubuh = customtkinter.CTkLabel(self.dropdownFrame1, text="Shubuh  =",font=("bold", 12))
-        # labelShubuh.place(x=10,y=50)
-        # labelTerbit = customtkinter.CTkLabel(self.dropdownFrame1, text="Terbit  =",font=("bold", 12))
-        # labelTerbit.place(x=10,y=70)
-        # labelDhuha = customtkinter.CTkLabel(self.dropdownFrame1, text="Dhuha  =",font=("bold", 12))
-        # labelDhuha.place(x=10,y=90)
-        # labelDzuhur = customtkinter.CTkLabel(self.dropdownFrame1, text="Dzuhur  =",font=("bold", 12))
-        # labelDzuhur.place(x=10,y=110)
-        # labelAshr = customtkinter.CTkLabel(self.dropdownFrame1, text="Ashr  =",font=("bold", 12))
-        # labelAshr.place(x=10,y=130)
-        # labelMaghrib = customtkinter.CTkLabel(self.dropdownFrame1, text="Maghrib =",font=("bold", 12))
-        # labelMaghrib.place(x=10,y=150)
-        # labelIsya = customtkinter.CTkLabel(self.dropdownFrame1, text="Isya  =",font=("bold", 12))
-        # labelIsya.place(x=10,y=170)
 
         self.string_input_button = customtkinter.CTkButton(master=self, text="Selengkapnya",
                                                            command=pop)
@@ -92,8 +69,6 @@ class JadwalSholat(customtkinter.CTk):
         new_scaling_float = int(new_scaling.replace("%", "")) / 100
         customtkinter.set_widget_scaling(new_scaling_float)
 
-    def sidebar_button_event(self):
-        print("sidebar_button click")
 
     def clock(self):
         string = time.strftime('%H:%M:%S'+"  WIB")
