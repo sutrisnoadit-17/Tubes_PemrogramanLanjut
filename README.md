@@ -11,15 +11,15 @@ Aplikasi GUI ini menyediakan antarmuka yang intuitif bagi pengguna untuk mengaks
    ```bash
    git clone https://github.com/sutrisnoadit-17/Tubes_PemrogramanLanjut.git
    cd Tubes_PemrogramanLanjut
-   
+   ```
 2. Install Requirements
     ```bash 
     pip install -r requirements.txt
-    
+    ```
 3. Run code
     ```bash
     python main.py
-    
+    ```
 ## Screenshots
 1. Loading Screen
 
