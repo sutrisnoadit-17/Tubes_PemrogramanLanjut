@@ -1,3 +1,8 @@
 darkdetect~=0.3.1
 typing-extensions~=4.4.0
 packaging
+requests
+CTkTable
+time
+tkinter
+customtkinter

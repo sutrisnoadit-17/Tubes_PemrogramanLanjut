@@ -4,6 +4,6 @@
 ### Install
 
 1. pip install -r requirement
-2. Run in main.py
+2. Run python main.py
 
-
+>Api : https://github.com/sutrisnoadit-17/api-jadwal-sholat-tubes-proglan
