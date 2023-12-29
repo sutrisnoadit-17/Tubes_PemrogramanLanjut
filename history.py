@@ -4,6 +4,7 @@ from config.api import toArr
 
 def pop():
     root = customtkinter.CTk()
+    root.title("Selengkapnya")
     csv_file_path = 'file/prev.csv'
     value= toArr(csv_file_path)
     elementHead = ["Row","Tanggal","imsyak","shubuh","terbit","dhuha","dzuhur","ashr","magrib","isya"]

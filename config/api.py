@@ -1,9 +1,14 @@
 import requests
 from datetime import datetime
 import pandas as pd
+from tkinter import messagebox 
 
 endPointCities = "https://raw.githubusercontent.com/sutrisnoadit-17/api-jadwal-sholat-tubes-proglan/main/kota.json"
 endPointSchedule = "https://raw.githubusercontent.com/sutrisnoadit-17/api-jadwal-sholat-tubes-proglan/main/jadwal/"
+check = False
+def msgBox(argMsg):
+    messagebox.showwarning("Error",argMsg)
+    return None
 def dateSeparated():
     tmpDate = str(datetime.now().date())
     return {"year":tmpDate[0:4], "month" : tmpDate[5:7],"day" : tmpDate[8:10]}
@@ -23,7 +28,6 @@ def getCities():
     try:
         response = requests.get(endPointCities)
         if response.status_code == 200:
-            print("API request successful")
             return response.json()  
         else:
             print(f"API request failed with status code {response.status_code}")
@@ -39,13 +43,16 @@ def getCities():
         return None
     
 def getScheduleAll(argArea):
-    url = endPointSchedule+f"{argArea}/{dateSeparated()['year']}/{dateSeparated()['month']}.json"
     try:
+        url = endPointSchedule+f"{argArea}/{dateSeparated()['year']}/{dateSeparated()['month']}.json"
         response = requests.get(url)
         print(response.status_code)
         if response.status_code == 200:
             importToCsv(url)
             return response.json()  
+        if response.status_code == 404:
+            msgBox("Daerah Tidak Ditemukan")
+            return False
         else:
             print(f"API request failed with status code {response.status_code}")
             return None
@@ -60,7 +67,11 @@ def getScheduleAll(argArea):
         return None
     
 def getDaily(argArea):
-    return getScheduleAll(argArea)[int(dateSeparated()['day']) - 1]
+    resp = getScheduleAll(argArea)[int(dateSeparated()['day']) - 1]
+    if resp is not False:
+        return resp
+    else:
+        return False
 
 def importToCsv(argJson):
     path = 'file/prev.csv'
